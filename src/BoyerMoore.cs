@@ -1,29 +1,27 @@
-using System;
+// public class BoyerMoore {
+//     public static int[] BuildLast(string pattern){
+//         int[] last = new int[128];
+//         for (int i = 0; i < 128; i++) {
+//             last[i] = -1;
+//         }
 
-public class BoyerMoore {
-namespace BoyerMoore{
-    public static int[] Last(string pattern){
-        int[] last = new int[128];
+//         for (int i = 0; i < pattern.Length; i++) {
+//             last[pattern[i]] = i;
+//         }
+//         return last;
+//     }
+// }
 
-        for (int i=0; i<128; i++){
-            last[i] = -1;
-        }
+// class Program {
+//     static void Main() {
+//         string pattern = "example";
+//         int[] last = BoyerMoore.BuildLast(pattern);
 
-        for (int i=0; i<pattern.Length; i++){
-            last[pattern[i]] = i;
-        }
-        return last;
-    }
-    // public static void Main(string[] args){
-    //     string pattern = "example";
-    //     int[] last = Last(pattern);
-
-    //     Console.WriteLine("Last occurrence indices for characters in the pattern:");
-    //     for (int i = 0; i < 128; i++){
-    //         if (last[i] != -1){
-    //             Console.WriteLine($"Character {(char)i}: Index {last[i]}");
-    //         }
-    //     }
-    // }
-}
-}
+//         Console.WriteLine("Last occurrence array:");
+//         for (int i = 0; i < last.Length; i++) {
+//             if (last[i] != -1) {
+//                 Console.WriteLine($"Character: {(char)i}, Index: {last[i]}");
+//             }
+//         }
+//     }
+// }
