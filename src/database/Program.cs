@@ -13,7 +13,7 @@ class Program {
         data.createSidikJariTable();
         string relativePath = @"..\..\test";
         List<string> pictureList =  new List<string>(Directory.GetFiles(relativePath));
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < pictureList.Count; i++)
         {
            Biodata temp = FakerBiodata.generateBiodata();
            

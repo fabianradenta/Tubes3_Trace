@@ -7,7 +7,7 @@ public class Database {
 
     private SQLiteConnection connection;
     private SQLiteCommand cmd;
-    private string dataPath = "Data Source=data.db";
+    private string dataPath = "Data Source=../../data.db";
 
     public Database() {
 
