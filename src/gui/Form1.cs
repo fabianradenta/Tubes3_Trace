@@ -1,10 +1,13 @@
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Drawing;
+using ImageProcess;
 
 namespace gui
 {
     public partial class Form1 : Form
     {
+        OpenFileDialog openFileDialog;
         public Form1()
         {
             InitializeComponent();
@@ -12,7 +15,7 @@ namespace gui
 
         private void uploadButton_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using (openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
                 openFileDialog.Filter = "Images files (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg;*.png;*.bmp;*.jpeg|All files (*.*)|*.*";
@@ -32,7 +35,7 @@ namespace gui
 
         private void uploadedPictureBox_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using (openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
                 openFileDialog.Filter = "Images files (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg;*.png;*.bmp;*.jpeg|All files (*.*)|*.*";
@@ -65,11 +68,16 @@ namespace gui
             {
                 // Run BM algorithm
                 Debug.WriteLine("BM algorithm runned");
+                Console.WriteLine("yoo");
             }
             else if (kmpRadio.Checked)
             {
-                // Run KMP algorithm
-                Debug.WriteLine("KMP algorithm runned");
+                // Run KMP 
+                string imagePath = openFileDialog.FileName;
+                List<string> AsciiInput = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(imagePath));
+                string filePath = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput));
+                resultPictureBox.Image = Image.FromFile(filePath);
+                resultPictureBoxLabel.Visible = false;
             }
         }
 
