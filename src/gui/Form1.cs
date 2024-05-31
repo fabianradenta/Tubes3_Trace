@@ -91,7 +91,9 @@ namespace gui
                 string filePath = res[0];
                 stopwatch.Stop();
                 resultPictureBox.Image = Image.FromFile(filePath);
-                resultPictureBoxLabel.Text = filePath + res[1] + res[2] + $"\nTime: {stopwatch.Elapsed.TotalMilliseconds} ms";
+                resultPictureBoxLabel.Text = filePath + res[1] + res[2] + $"Time: {stopwatch.Elapsed.TotalMilliseconds} ms";
+                timeLabel.Text = $"Time: {stopwatch.Elapsed.TotalMilliseconds} ms";
+                persentageLabel.Text = "Percentage: " + res[2] + "%";
 
             }
         }
