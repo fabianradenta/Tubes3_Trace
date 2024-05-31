@@ -1,0 +1,60 @@
+using System;
+using System.Data.SQLite;
+
+namespace database;
+public class Database {
+
+    private SQLiteConnection connection;
+    private SQLiteCommand cmd;
+    private string dataPath = "Data Source=data.db";
+
+    public Database() {
+
+    }
+    public void connect() {
+        connection = new SQLiteConnection(dataPath);
+        connection.Open();
+        cmd = new SQLiteCommand(connection);
+    }
+
+    public void createBiodataTable() {
+        cmd.CommandText = @"
+            CREATE TABLE IF NOT EXISTS biodata (  
+                `nik`  VARCHAR(16) PRIMARY KEY,
+                `nama` VARCHAR(100) DEFAULT NULL,
+                `tempat_lahir` VARCHAR(50) DEFAULT NULL,
+                `tanggal_lahir` DATE DEFAULT NULL,
+                `jenis_kelamin` VARCHAR(10) CHECK(jenis_kelamin IN ('Laki-Laki', 'Perempuan')) DEFAULT NULL,
+                `golongan_darah` VARCHAR(5) DEFAULT NULL,
+                `alamat` VARCHAR(255) DEFAULT NULL,
+                `agama` VARCHAR(50) DEFAULT NULL,
+                `status_perkawinan` VARCHAR(20) CHECK(status_perkawinan IN ('Belum Menikah', 'Menikah', 'Cerai')) DEFAULT NULL,
+                `pekerjaan` VARCHAR(100) DEFAULT NULL,
+                `kewarganegaraan` VARCHAR(50) DEFAULT NULL
+        )";
+        cmd.ExecuteNonQuery();
+    }
+
+    public void createSidikJariTable() {
+        cmd.CommandText = @"
+            CREATE TABLE IF NOT EXISTS sidik_jari (
+                `berkas_citra` TEXT,
+                `nama` VARCHAR(100) DEFAULT NULL
+            )";
+        cmd.ExecuteNonQuery();
+    }
+
+    public void dropBiodataTable() {
+        cmd.CommandText = @"
+            DROP TABLE IF EXISTS biodata
+        ";
+        cmd.ExecuteNonQuery();
+    }
+
+    public void dropSidikJariTable() {
+        cmd.CommandText = @"
+            DROP TABLE IF EXISTS sidik_jari
+        ";
+        cmd.ExecuteNonQuery();
+    }
+}
