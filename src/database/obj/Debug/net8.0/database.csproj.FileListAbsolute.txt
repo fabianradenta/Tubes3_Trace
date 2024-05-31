@@ -41,3 +41,6 @@ C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\database\obj\Debug\net8.0\refint\database
 C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\database\obj\Debug\net8.0\database.pdb
 C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\database\obj\Debug\net8.0\database.genruntimeconfig.cache
 C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\database\obj\Debug\net8.0\ref\database.dll
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\database\bin\Debug\net8.0\Bogus.dll
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\database\bin\Debug\net8.0\ConsoleApp1.dll
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\database\bin\Debug\net8.0\ConsoleApp1.pdb

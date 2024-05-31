@@ -1,8 +1,9 @@
 using Bogus;
 using Bogus.DataSets;
 
+namespace faker;
 public class FakerBiodata {
-        public static void Main() {
+        public static Biodata generateBiodata() {
             var jenisKelamin = new[] {"Laki-Laki", "Perempuan"};
             var goldar = new[] {"A", "B", "AB", "O"};
             var agama = new[] {"Islam", "Katolik", "Protestan", "Hindu", "Buddha", "Khonghucu"};
@@ -21,17 +22,18 @@ public class FakerBiodata {
                 .RuleFor(p => p.pekerjaan, f => f.PickRandom(job))
                 .RuleFor(p => p.kewarganegaraan, f => f.Address.Country());
 
-            var biodata = faker.Generate();
-            Console.WriteLine($"Nama: {biodata.nama}");
-            Console.WriteLine($"NIK : {biodata.nik}");
-            Console.WriteLine($"Tempat lahir: {biodata.tempat_lahir}");
-            Console.WriteLine($"Tanggal lahir: {biodata.tanggal_lahir}");
-            Console.WriteLine($"Jenis kelamin: {biodata.jenis_kelamin}");
-            Console.WriteLine($"goldar: {biodata.golongan_darah}");
-            Console.WriteLine($"alamat: {biodata.alamat}");
-            Console.WriteLine($"agama: {biodata.agama}");
-            Console.WriteLine($"status: {biodata.status}");
-            Console.WriteLine($"pekerjaan: {biodata.pekerjaan}");
-            Console.WriteLine($"kewarganegaraan: {biodata.kewarganegaraan}");
+            Biodata biodata = faker.Generate();
+            //Console.WriteLine($"Nama: {biodata.nama}");
+            //Console.WriteLine($"NIK : {biodata.nik}");
+            //Console.WriteLine($"Tempat lahir: {biodata.tempat_lahir}");
+            //Console.WriteLine($"Tanggal lahir: {biodata.tanggal_lahir}");
+            //Console.WriteLine($"Jenis kelamin: {biodata.jenis_kelamin}");
+            //Console.WriteLine($"goldar: {biodata.golongan_darah}");
+            //Console.WriteLine($"alamat: {biodata.alamat}");
+            //Console.WriteLine($"agama: {biodata.agama}");
+            //Console.WriteLine($"status: {biodata.status}");
+            //Console.WriteLine($"pekerjaan: {biodata.pekerjaan}");
+            //Console.WriteLine($"kewarganegaraan: {biodata.kewarganegaraan}");
+            return biodata;
         }
 }

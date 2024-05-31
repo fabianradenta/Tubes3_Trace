@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bsI2+WoONaOr9a6FloC15fGFfkEC6ZOvma2NyvEv/sDl5eKvB2TxPHT483zxfY3IGlx3PAaIQtDv/GrmCv8arg==",
+  "dgSpecHash": "ajZRSylQ/VOhtyrll+hRC8RmeegDuj9ECHlBRMg35JIP1rTYAdLD42nhUAzo9uiKQfSpI6tx6w5jJsSxOvB53Q==",
   "success": true,
   "projectFilePath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\database\\database.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Rafli\\.nuget\\packages\\bogus\\35.5.1\\bogus.35.5.1.nupkg.sha512",
     "C:\\Users\\Rafli\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Rafli\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Rafli\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
