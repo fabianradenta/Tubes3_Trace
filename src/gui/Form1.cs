@@ -65,20 +65,14 @@ namespace gui
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (bmRadio.Checked)
-            {
-                // Run BM algorithm
-                Debug.WriteLine("BM algorithm runned");
-                Console.WriteLine("yoo");
-            }
-            else if (kmpRadio.Checked)
+            if (bmRadio.Checked || kmpRadio.Checked)
             {
                 // Run KMP 
                 string imagePath = openFileDialog.FileName;
                 List<string> AsciiInput = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(imagePath));
-                List<string> res1 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[0]);
-                List<string> res2 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[1]);
-                List<string> res3 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[2]);
+                List<string> res1 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[0], kmpRadio.Checked);
+                List<string> res2 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[1], kmpRadio.Checked);
+                List<string> res3 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[2], kmpRadio.Checked);
                 string filePath;
                 int res1Val = int.Parse(res1[2]);
                 int res2Val = int.Parse(res2[2]);
