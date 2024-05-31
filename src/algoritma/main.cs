@@ -5,18 +5,18 @@ using ImageProcess;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-class MainProgram{
-    public static void Search_FingerPrint(String ImageAscii){
+public class MainProgram{
+    public static string Search_FingerPrint(string ImageAscii){
         string folderPath = @"Real";
 
         string[] allFiles = Directory.GetFiles(folderPath, "*.*", SearchOption.AllDirectories);
         double best_value_fp = 8;
         string result = "";
-        String r = "";
+        string r = "";
         bool found = false;
         foreach (string file in allFiles){
-            List<String> ImageAscii2 = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(file));
-            foreach (String row in ImageAscii2) {
+            List<string> ImageAscii2 = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(file));
+            foreach (string row in ImageAscii2) {
                 if (KMP.KMPCompare(row, ImageAscii) == -1) {
                     for (int i = 0; i <= row.Length - ImageAscii.Length; i++) {
                         string substring = row.Substring(i, ImageAscii.Length);
@@ -33,6 +33,7 @@ class MainProgram{
                     }
                 } else {
                     r = row;
+                    result = file;
                     Console.WriteLine(file);
                     Console.WriteLine(row);
                     Console.WriteLine(ImageAscii);
@@ -55,6 +56,7 @@ class MainProgram{
                 Console.WriteLine(result);
             }
         }
+        return result;
     }
     public static string GetStringToMatch(List<string> imageString)
     {
@@ -82,7 +84,7 @@ class MainProgram{
 
         return result.ToString();
     }
-    // static void Main(string[] args) {
+    static void Main(string[] args) {}
     //     // string imagePath = "Real/253__F_Left_index_finger.BMP";
     //     string imagePath = "Real/3__M_Right_ring_finger.BMP";
     //     // string imagePath2 = "Real/172__M_Right_ring_finger.BMP";
