@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Text;
-using Image;
+using ImageProcess;
 using System.Drawing;
 using System.Drawing.Imaging;
 

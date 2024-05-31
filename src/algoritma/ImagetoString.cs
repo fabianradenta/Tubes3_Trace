@@ -4,7 +4,7 @@ using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace Image
+namespace ImageProcess
 {
     public class ImageToString {
         public static List<List<int>> ConvertToBinaryImage(string imagePath)
