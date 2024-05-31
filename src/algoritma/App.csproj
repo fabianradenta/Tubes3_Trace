@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="8.0.5" />
+    <ProjectReference Include="../database/database.csproj" />
   </ItemGroup>
+
 
 </Project>

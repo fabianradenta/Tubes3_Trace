@@ -4,12 +4,14 @@ using System.Text;
 using ImageProcess;
 using System.Drawing;
 using System.Drawing.Imaging;
+using database;
 
 public class MainProgram{
     public static List<string> Search_FingerPrint(string ImageAscii){
-        string folderPath = @"Real";
-
-        string[] allFiles = Directory.GetFiles(folderPath, "*.*", SearchOption.AllDirectories);
+        Database db = new Database();
+        db.connect();
+        List<string> allFiles = db.selectPathFromSidikJari();
+        Console.WriteLine(allFiles[0]);
         
         int best_value_fp = 8;
         string result = "";
@@ -109,13 +111,10 @@ public class MainProgram{
         return result;
     }
 
-    static void Main(string[] args) {}
-    //     // string imagePath = "Real/253__F_Left_index_finger.BMP";
+    static void Main(string[] args) {
+    }
     //     string imagePath = "Real/3__M_Right_ring_finger.BMP";
     //     // string imagePath2 = "Real/172__M_Right_ring_finger.BMP";
-    //     List<List<int>> binaryMatrix = ImageToString.ConvertToBinaryImage(imagePath);
-    //     List<String> StringPattern = ImageToString.IntToString(binaryMatrix);
-    //     Search_FingerPrint(GetStringToMatch(StringPattern));
     //     // List<List<int>> binaryMatrix2 = ImageToString.ConvertToBinaryImage(imagePath2);
     //     // List<String> StringPattern2 = ImageToString.IntToString(binaryMatrix2);
     //     // String ImageAscii = GetStringToMatch(StringPattern2);

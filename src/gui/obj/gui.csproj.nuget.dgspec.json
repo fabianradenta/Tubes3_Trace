@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj": {}
+    "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\gui\\gui.csproj": {}
   },
   "projects": {
-    "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\algoritma\\App.csproj": {
+    "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\algoritma\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\algoritma\\App.csproj",
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\algoritma\\App.csproj",
         "projectName": "App",
-        "projectPath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\algoritma\\App.csproj",
-        "packagesPath": "C:\\Users\\Rafli\\.nuget\\packages\\",
-        "outputPath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\algoritma\\obj\\",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\algoritma\\App.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\algoritma\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Rafli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,23 +26,23 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\database\\database.csproj": {
+                "projectPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\database\\database.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -66,36 +70,41 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj": {
+    "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\database\\database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj",
-        "projectName": "gui",
-        "projectPath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj",
-        "packagesPath": "C:\\Users\\Rafli\\.nuget\\packages\\",
-        "outputPath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\obj\\",
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\database\\database.csproj",
+        "projectName": "database",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\database\\database.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\database\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Rafli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0-windows"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0-windows7.0": {
-            "targetAlias": "net8.0-windows",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\algoritma\\App.csproj": {
-                "projectPath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\algoritma\\App.csproj"
+              "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\faker\\ConsoleApp1\\ConsoleApp1.csproj": {
+                "projectPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\faker\\ConsoleApp1\\ConsoleApp1.csproj"
               }
             }
           }
@@ -104,11 +113,142 @@
           "warnAsError": [
             "NU1605"
           ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.118, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\faker\\ConsoleApp1\\ConsoleApp1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\faker\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectName": "ConsoleApp1",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\faker\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\faker\\ConsoleApp1\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.5.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\gui\\gui.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\gui\\gui.csproj",
+        "projectName": "gui",
+        "projectPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\gui\\gui.csproj",
+        "packagesPath": "C:\\Users\\abdul\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\gui\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\abdul\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\algoritma\\App.csproj": {
+                "projectPath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\algoritma\\App.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
         }
       },
       "frameworks": {
@@ -133,7 +273,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
