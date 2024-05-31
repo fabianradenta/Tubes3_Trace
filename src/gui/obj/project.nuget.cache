@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "7oCVOaV1l5QTUQwLJQMsfDqy5JgFrGjtRf6QZPX7nOKqvX4eRi+zd8+qg0llZybl6zBIUoh2M3lL7/5mKPTdGw==",
+  "dgSpecHash": "43gsv9sSGeXkgzG3aFUdXXNOEJSqztoC6zaPt1A05pOg8y0JG7UqzMxG9Qwg1/x1VOHhfbIfdfeeMtqMU5WvGw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\gui\\gui.csproj",
+  "projectFilePath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\abdul\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
-    "C:\\Users\\abdul\\.nuget\\packages\\system.drawing.common\\8.0.5\\system.drawing.common.8.0.5.nupkg.sha512"
+    "C:\\Users\\Rafli\\.nuget\\packages\\microsoft.win32.systemevents\\8.0.0\\microsoft.win32.systemevents.8.0.0.nupkg.sha512",
+    "C:\\Users\\Rafli\\.nuget\\packages\\system.drawing.common\\8.0.5\\system.drawing.common.8.0.5.nupkg.sha512"
   ],
   "logs": []
 }
