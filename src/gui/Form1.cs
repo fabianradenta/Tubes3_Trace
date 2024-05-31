@@ -1,10 +1,13 @@
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Drawing;
+using ImageProcess;
 
 namespace gui
 {
     public partial class Form1 : Form
     {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
         public Form1()
         {
             InitializeComponent();
@@ -12,7 +15,7 @@ namespace gui
 
         private void uploadButton_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using (openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
                 openFileDialog.Filter = "Images files (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg;*.png;*.bmp;*.jpeg|All files (*.*)|*.*";
@@ -32,7 +35,7 @@ namespace gui
 
         private void uploadedPictureBox_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using (openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
                 openFileDialog.Filter = "Images files (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg;*.png;*.bmp;*.jpeg|All files (*.*)|*.*";
@@ -43,7 +46,8 @@ namespace gui
                 {
                     // Get the path of specified file
                     string filePath = openFileDialog.FileName;
-
+                    Debug.WriteLine(filePath);
+                    Debug.WriteLine("AZZ");
                     uploadedPictureBox.Image = Image.FromFile(filePath);
                     uploadedPictureBoxLabel.Visible = false;
                 }
@@ -65,11 +69,33 @@ namespace gui
             {
                 // Run BM algorithm
                 Debug.WriteLine("BM algorithm runned");
+                Console.WriteLine("yoo");
             }
             else if (kmpRadio.Checked)
             {
-                // Run KMP algorithm
-                Debug.WriteLine("KMP algorithm runned");
+                // Run KMP 
+                string imagePath = openFileDialog.FileName;
+                List<string> AsciiInput = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(imagePath));
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
+                List<string> res1 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[0]);
+                List<string> res2 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[1]);
+                List<string> res3 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[2]);
+                string filePath;
+                int res1Val = int.Parse(res1[2]);
+                int res2Val = int.Parse(res2[2]);
+                int res3Val = int.Parse(res3[2]);
+                int min = Math.Min(Math.Min(res1Val, res2Val), res3Val);
+                if (res1Val == min) {
+                    filePath = res1[0];
+                } else if (res2Val == min) {
+                    filePath = res2[0];
+                } else {
+                    filePath = res3[0];
+                }
+                stopwatch.Stop();
+                resultPictureBox.Image = Image.FromFile(filePath);
+                resultPictureBoxLabel.Text = filePath + res1[1] + res1[2] + $"\nTime: {stopwatch.Elapsed.TotalMilliseconds} ms";
             }
         }
 

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Qr1rEDBV5ebcsWGV6kzlAq83GUQNsdkCnwzYwcsznzTiYlU0TOZUvyipjFaudpzV+spEnD/KNnLy48vmC8VKdg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\src\\faker\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\abdul\\.nuget\\packages\\bogus\\35.5.1\\bogus.35.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}
