@@ -1,12 +1,13 @@
 using System;
 using System.Data.SQLite;
+using System.Data.SqlTypes;
 
 namespace database;
 public class Database {
 
     private SQLiteConnection connection;
     private SQLiteCommand cmd;
-    private string dataPath = "Data Source=data.db";
+    private string dataPath = "Data Source=../../data.db";
 
     public Database() {
 
@@ -86,4 +87,14 @@ public class Database {
         ";
         cmd.ExecuteNonQuery();
     }
+
+    public List<string> selectPathFromSidikJari() {
+        List<string> result = new List<string>();
+        cmd.CommandText = @"SELECT berkas_citra FROM sidik_jari";
+        SQLiteDataReader data = cmd.ExecuteReader();
+        while (data.Read()) {
+            result.Add(Convert.ToString(data["berkas_citra"]));
+        }
+        return result;
+    } 
 }

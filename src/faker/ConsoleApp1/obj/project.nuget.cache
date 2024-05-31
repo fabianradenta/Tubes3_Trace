@@ -1,10 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "/ODXm2MD+DJN3u76/3of8s0NAQCb6b+3qda+CajdTU6W70Mqxogqx4OBhnz8piOqnYOoqTDAJ2YF5Whx+yuvxg==",
-  "success": true,
-  "projectFilePath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\faker\\ConsoleApp1\\ConsoleApp1.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Rafli\\.nuget\\packages\\bogus\\35.5.1\\bogus.35.5.1.nupkg.sha512"
-  ],
-  "logs": []
+  "dgSpecHash": "XI+y5PIiCRY=",
+  "success": false,
+  "projectFilePath": "/Users/abi/Documents/Tubes3_Trace/src/faker/ConsoleApp1/ConsoleApp1.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "Bogus"
+    }
+  ]
 }
