@@ -7,7 +7,7 @@ namespace gui
 {
     public partial class Form1 : Form
     {
-        OpenFileDialog openFileDialog;
+        OpenFileDialog openFileDialog = new OpenFileDialog();
         public Form1()
         {
             InitializeComponent();
@@ -46,7 +46,8 @@ namespace gui
                 {
                     // Get the path of specified file
                     string filePath = openFileDialog.FileName;
-
+                    Debug.WriteLine(filePath);
+                    Debug.WriteLine("AZZ");
                     uploadedPictureBox.Image = Image.FromFile(filePath);
                     uploadedPictureBoxLabel.Visible = false;
                 }
@@ -75,9 +76,10 @@ namespace gui
                 // Run KMP 
                 string imagePath = openFileDialog.FileName;
                 List<string> AsciiInput = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(imagePath));
-                string filePath = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput));
+                List<string> res = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput));
+                string filePath = res[0];
                 resultPictureBox.Image = Image.FromFile(filePath);
-                resultPictureBoxLabel.Visible = false;
+                resultPictureBoxLabel.Text = filePath + res[1];
             }
         }
 

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 
 public class MainProgram{
-    public static string Search_FingerPrint(string ImageAscii){
+    public static List<string> Search_FingerPrint(string ImageAscii){
         string folderPath = @"Real";
 
         string[] allFiles = Directory.GetFiles(folderPath, "*.*", SearchOption.AllDirectories);
@@ -45,45 +45,68 @@ public class MainProgram{
                 break;
             }
         }
+        List<string> res = new List<string>();
+        res.Add(result);
         if (!found){
             Console.WriteLine(r);
             Console.WriteLine(ImageAscii);
             Console.WriteLine(best_value_fp);
             if (best_value_fp > 4) {
+                res.Add("\nNot found the image");
                 Console.WriteLine("Not found the image");
             } else {
+                res.Add("\nNot found the exact same image");
                 Console.WriteLine("Not found the exact same image");
                 Console.WriteLine(result);
             }
+        } else {
+            res.Add("");
         }
-        return result;
+        return res;
     }
     public static string GetStringToMatch(List<string> imageString)
+{
+    int colLength = imageString[0].Length;
+
+    // Determine the row to use
+    int selectedRow = imageString.Count / 4;
+    int selectedRowAlt = imageString.Count * 3 / 4;
+    int desiredLength = 8;
+    int minLength = 4;
+    int start = Math.Max(0, (colLength - desiredLength) / 2);
+    // int startAlt = Math.Max(0, (colLength - desiredLength) 2);
+
+    int end = Math.Min(colLength, start + desiredLength);
+
+    if (end - start < minLength)
     {
-        int row = imageString.Count / 2;
-        int rowLength = imageString[0].Length;
-        int desiredLength = 8;
-        int minLength = 4;
-
-        // Calculate the start index to center the desired length part of the row
-        int start = Math.Max(0, (rowLength - desiredLength) / 2);
-        int end = Math.Min(rowLength, start + desiredLength);
-
-        // Ensure the resulting string is at least minLength long
-        if (end - start < minLength)
-        {
-            start = Math.Max(0, (rowLength - minLength) / 2);
-            end = Math.Min(rowLength, start + minLength);
-        }
-
-        StringBuilder result = new StringBuilder();
-        for (int i = start; i < end; i++)
-        {
-            result.Append(imageString[row][i]);
-        }
-
-        return result.ToString();
+        start = Math.Max(0, (colLength - minLength) / 4);
+        // startAlt = Math.Max(0, (colLength - minLength) / 2);
+        end = Math.Min(colLength, start + minLength);
     }
+
+    // Build the result string
+    StringBuilder result = new StringBuilder();
+    StringBuilder resultAlt = new StringBuilder();
+    int count = 0;
+    for (int i = start; i < end; i++)
+    {
+        if (imageString[selectedRow][i] == ' ') {
+            count++;
+        }
+        result.Append(imageString[selectedRow][i]);
+        resultAlt.Append(imageString[selectedRowAlt][i]);
+    }
+
+    // if (count == (end - start + 1)) {
+    //     return resultAlt.ToString();
+    // } else {
+    //     return result.ToString();
+    // }
+
+    return result.ToString();
+}
+
     static void Main(string[] args) {}
     //     // string imagePath = "Real/253__F_Left_index_finger.BMP";
     //     string imagePath = "Real/3__M_Right_ring_finger.BMP";
