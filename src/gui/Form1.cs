@@ -46,7 +46,8 @@ namespace gui
                 {
                     // Get the path of specified file
                     string filePath = openFileDialog.FileName;
-
+                    Debug.WriteLine(filePath);
+                    Debug.WriteLine("AZZ");
                     uploadedPictureBox.Image = Image.FromFile(filePath);
                     uploadedPictureBoxLabel.Visible = false;
                 }
