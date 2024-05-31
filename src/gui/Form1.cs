@@ -76,6 +76,8 @@ namespace gui
                 // Run KMP 
                 string imagePath = openFileDialog.FileName;
                 List<string> AsciiInput = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(imagePath));
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
                 List<string> res1 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[0]);
                 List<string> res2 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[1]);
                 List<string> res3 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[2]);
@@ -91,8 +93,9 @@ namespace gui
                 } else {
                     filePath = res3[0];
                 }
+                stopwatch.Stop();
                 resultPictureBox.Image = Image.FromFile(filePath);
-                resultPictureBoxLabel.Text = filePath + res1[1] + res1[2];
+                resultPictureBoxLabel.Text = filePath + res1[1] + res1[2] + $"\nTime: {stopwatch.Elapsed.TotalMilliseconds} ms";
             }
         }
 
