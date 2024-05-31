@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj": {}
+    "D:\\Materi Kuliah\\Semester 6 (PMM ITB)\\Strategi Algoritma\\tubes 3\\Tubes3_Trace\\src\\gui\\gui.csproj": {}
   },
   "projects": {
-    "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj": {
+    "D:\\Materi Kuliah\\Semester 6 (PMM ITB)\\Strategi Algoritma\\tubes 3\\Tubes3_Trace\\src\\gui\\gui.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj",
+        "projectUniqueName": "D:\\Materi Kuliah\\Semester 6 (PMM ITB)\\Strategi Algoritma\\tubes 3\\Tubes3_Trace\\src\\gui\\gui.csproj",
         "projectName": "gui",
-        "projectPath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\gui.csproj",
-        "packagesPath": "C:\\Users\\Rafli\\.nuget\\packages\\",
-        "outputPath": "C:\\Tugas\\Tubes3_Stima\\Tubes3_Trace\\src\\gui\\obj\\",
+        "projectPath": "D:\\Materi Kuliah\\Semester 6 (PMM ITB)\\Strategi Algoritma\\tubes 3\\Tubes3_Trace\\src\\gui\\gui.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "D:\\Materi Kuliah\\Semester 6 (PMM ITB)\\Strategi Algoritma\\tubes 3\\Tubes3_Trace\\src\\gui\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Rafli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
