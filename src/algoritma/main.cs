@@ -7,7 +7,7 @@ using System.Drawing.Imaging;
 using database;
 
 public class MainProgram{
-    public static List<string> Search_FingerPrint(string ImageAscii){
+    public static List<string> Search_FingerPrint(string ImageAscii, bool isKMP){
         Database db = new Database();
         db.connect();
         List<string> allFiles = db.selectPathFromSidikJari();
@@ -20,25 +20,49 @@ public class MainProgram{
         foreach (string file in allFiles){
             List<string> ImageAscii2 = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(file));
             foreach (string row in ImageAscii2) {
-                if (KMP.KMPCompare(row, ImageAscii) == -1) {
-                    for (int i = 0; i <= row.Length - ImageAscii.Length; i++) {
-                        string substring = row.Substring(i, ImageAscii.Length);
-                        int LCS_Result = Hamming.hammingDist(ImageAscii, substring);
-                        if (LCS_Result < best_value_fp)
-                        {
-                            best_value_fp = LCS_Result;
-                            result = file;
-                            r = substring;
+                if (isKMP){
+                    if (KMP.KMPCompare(row, ImageAscii) == -1) {
+                        for (int i = 0; i <= row.Length - ImageAscii.Length; i++) {
+                            string substring = row.Substring(i, ImageAscii.Length);
+                            int LCS_Result = Hamming.hammingDist(ImageAscii, substring);
+                            if (LCS_Result < best_value_fp)
+                            {
+                                best_value_fp = LCS_Result;
+                                result = file;
+                                r = substring;
+                            }
                         }
+                    } else {
+                        r = row;
+                        result = file;
+                        Console.WriteLine(file);
+                        Console.WriteLine(row);
+                        Console.WriteLine(ImageAscii);
+                        found = true;
+                        break;
                     }
-                } else {
-                    r = row;
-                    result = file;
-                    Console.WriteLine(file);
-                    Console.WriteLine(row);
-                    Console.WriteLine(ImageAscii);
-                    found = true;
-                    break;
+                }
+                else {
+                    if (BoyerMoore.BmMatch(row, ImageAscii) == -1) {
+                        for (int i = 0; i <= row.Length - ImageAscii.Length; i++) {
+                            string substring = row.Substring(i, ImageAscii.Length);
+                            int LCS_Result = Hamming.hammingDist(ImageAscii, substring);
+                            if (LCS_Result < best_value_fp)
+                            {
+                                best_value_fp = LCS_Result;
+                                result = file;
+                                r = substring;
+                            }
+                        }
+                    } else {
+                        r = row;
+                        result = file;
+                        Console.WriteLine(file);
+                        Console.WriteLine(row);
+                        Console.WriteLine(ImageAscii);
+                        found = true;
+                        break;
+                    }
                 }
             }
             if (found) {
