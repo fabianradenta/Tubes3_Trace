@@ -3,7 +3,7 @@ using System;
 public class BoyerMoore {
     public static int[] BuildLast(string pattern) {
         int[] last = new int[char.MaxValue+1];
-        for (int i = 0; i < 128; i++) {
+        for (int i = 0; i < last.Length; i++) {
             last[i] = -1;
         }
         for (int i = 0; i < pattern.Length; i++) {
