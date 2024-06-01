@@ -1,6 +1,9 @@
 using System;
+using System.Data;
 using System.Data.SQLite;
 using System.Data.SqlTypes;
+using System.Globalization;
+using System.Numerics;
 
 namespace database;
 public class Database {
@@ -97,4 +100,29 @@ public class Database {
         }
         return result;
     } 
+
+    public Biodata selectAllFromBiodata(string nama) {
+        cmd.CommandText = @$"
+            SELECT * FROM biodata
+            WHERE biodata.nama='{nama}'
+        ";
+        SQLiteDataReader data = cmd.ExecuteReader();
+        data.Read();
+        int tanggal_lahir_idx = data.GetOrdinal("tanggal_lahir");
+        Biodata biodata = new Biodata
+        {
+            nik = Convert.ToInt64(data["nik"]),
+            nama = Convert.ToString(data["nama"]),
+            tempat_lahir = Convert.ToString(data["tempat_lahir"]),
+            tanggal_lahir = DateOnly.FromDateTime(DateTime.ParseExact(data.GetString(tanggal_lahir_idx), "dd/MM/yyyy", CultureInfo.InvariantCulture)),
+            jenis_kelamin = Convert.ToString(data["jenis_kelamin"]),
+            golongan_darah = Convert.ToString(data["golongan_darah"]),
+            alamat = Convert.ToString(data["alamat"]),
+            agama = Convert.ToString(data["agama"]),
+            status = Convert.ToString(data["status_perkawinan"]),
+            pekerjaan = Convert.ToString(data["pekerjaan"]),
+            kewarganegaraan = Convert.ToString(data["kewarganegaraan"])
+        };
+        return biodata;
+    }
 }

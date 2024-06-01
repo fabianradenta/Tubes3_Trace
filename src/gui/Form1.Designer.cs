@@ -110,6 +110,10 @@ namespace gui
             // 
             // resultTextBox
             // 
+            resultTextBox.BackColor = Color.White;
+            resultTextBox.BorderStyle = BorderStyle.None;
+            resultTextBox.Font = new Font("League Spartan ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resultTextBox.ForeColor = Color.Gray;
             resultTextBox.Location = new Point(861, 85);
             resultTextBox.Multiline = true;
             resultTextBox.Name = "resultTextBox";
