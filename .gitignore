@@ -2,3 +2,4 @@
 *.BMP
 obj/
 bin/
+Properties/
