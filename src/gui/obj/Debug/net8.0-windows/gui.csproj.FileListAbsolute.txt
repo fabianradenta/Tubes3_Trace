@@ -1,4 +1,3 @@
-C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.Form1.resources
 C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.csproj.GenerateResource.cache
 C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.GeneratedMSBuildEditorConfig.editorconfig
 C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.AssemblyInfoInputs.cache
@@ -42,3 +41,13 @@ C:\Users\abdul\OneDrive\Documents\Coding\STIMA\Tubes3\Tubes3_Trace\src\gui\obj\D
 C:\Users\abdul\OneDrive\Documents\Coding\STIMA\Tubes3\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.pdb
 C:\Users\abdul\OneDrive\Documents\Coding\STIMA\Tubes3\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.genruntimeconfig.cache
 C:\Users\abdul\OneDrive\Documents\Coding\STIMA\Tubes3\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\ref\gui.dll
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\bin\Debug\net8.0-windows\App.deps.json
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\bin\Debug\net8.0-windows\App.runtimeconfig.json
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\bin\Debug\net8.0-windows\App.exe
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\bin\Debug\net8.0-windows\App.dll
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\bin\Debug\net8.0-windows\App.pdb
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.csproj.AssemblyReference.cache
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.Properties.Resources.resources
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.csproj.Up2Date
+C:\Tugas\Tubes3_Stima\Tubes3_Trace\src\gui\obj\Debug\net8.0-windows\gui.MainForm.resources

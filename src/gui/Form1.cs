@@ -5,10 +5,10 @@ using ImageProcess;
 
 namespace gui
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -83,5 +83,9 @@ namespace gui
             }
         }
 
+        private void uploadedPictureBoxLabel_Click(object sender, EventArgs e)
+        {
+            uploadedPictureBox_Click(sender, e);
+        }
     }
 }
