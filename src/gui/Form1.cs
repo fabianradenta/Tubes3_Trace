@@ -2,12 +2,14 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
 using ImageProcess;
+using database;
 
 namespace gui
 {
     public partial class Form1 : Form
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
+        private Database db = new Database();
         public Form1()
         {
             InitializeComponent();
@@ -74,10 +76,23 @@ namespace gui
                 string filePath = res[0];
                 stopwatch.Stop();
                 resultPictureBox.Image = Image.FromFile(filePath);
-                resultPictureBoxLabel.Text = filePath + res[1] + res[2] + $"Time: {stopwatch.Elapsed.TotalMilliseconds} ms";
+                resultPictureBoxLabel.Visible = false;
+                db.connect();
+                string name = db.getNameFromSidikJari(filePath);
+                Biodata result = db.getBiodataFromName(name);
                 timeLabel.Text = $"Time: {stopwatch.Elapsed.TotalMilliseconds} ms";
                 persentageLabel.Text = "Percentage: " + res[2] + "%";
-
+                nikLabel.Text = $"NIK: {result.nik}";
+                namaLabel.Text = $"Nama: {result.nama}";
+                tempatLahirLabel.Text = $"Tempat Lahir: {result.tempat_lahir}";
+                tanggalLahirLabel.Text = $"Tanggal Lahir: {result.tanggal_lahir}";
+                jenisKelaminLabel.Text = $"Jenis Kelamin: {result.jenis_kelamin}";
+                golonganDarahLabel.Text = $"Golongan Darah: {result.golongan_darah}";
+                alamatLabel.Text = $"Alamat: {result.alamat}";
+                agamaLabel.Text = $"Agama: {result.agama}";
+                statusPerkawinanLabel.Text = $"Status Perkawinan: {result.status}";
+                pekerjaanLabel.Text = $"Pekerjaan: {result.pekerjaan}";
+                kewarganegaraanLabel.Text = $"Kewarganegaraan: {result.kewarganegaraan}";
             }
         }
 

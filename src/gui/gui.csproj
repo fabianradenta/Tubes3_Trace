@@ -10,5 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\algoritma\App.csproj" />
+    <ProjectReference Include="..\database\Database.csproj" />
   </ItemGroup>
 </Project>

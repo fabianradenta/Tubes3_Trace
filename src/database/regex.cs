@@ -1,6 +1,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
+namespace database;
 class CustomRegex
 {
     // static void Main()
@@ -32,7 +33,7 @@ class CustomRegex
     //         }
     //     }
     // }
-    public bool PatternMatching(string pattern, string tergetString) {
+    public static bool PatternMatching(string pattern, string tergetString) {
         // string pattern = MakePattern(patternString);
         
         Regex regex = new Regex(pattern);

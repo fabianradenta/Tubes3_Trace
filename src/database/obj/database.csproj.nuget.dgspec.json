@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\database.csproj": {}
+    "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\Database.csproj": {}
   },
   "projects": {
-    "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\database.csproj": {
+    "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\database.csproj",
-        "projectName": "database",
-        "projectPath": "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\database.csproj",
+        "projectUniqueName": "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\Database.csproj",
+        "projectName": "Database",
+        "projectPath": "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\Database.csproj",
         "packagesPath": "C:\\Users\\Rafli\\.nuget\\packages\\",
         "outputPath": "C:\\Tugas\\Tubes3_Stima\\pls\\Tubes3_Trace\\src\\database\\obj\\",
         "projectStyle": "PackageReference",
