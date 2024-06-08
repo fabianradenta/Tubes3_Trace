@@ -19,7 +19,7 @@ namespace gui
         {
             using (openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+                openFileDialog.InitialDirectory = Path.GetFullPath("../../test/");
                 openFileDialog.Filter = "Images files (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg;*.png;*.bmp;*.jpeg|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
@@ -39,7 +39,7 @@ namespace gui
         {
             using (openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+                openFileDialog.InitialDirectory = Path.GetFullPath("../../test/");
                 openFileDialog.Filter = "Images files (*.jpg; *.jpeg; *.png; *.bmp)|*.jpg;*.png;*.bmp;*.jpeg|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
@@ -67,7 +67,7 @@ namespace gui
         {
             if (bmRadio.Checked || kmpRadio.Checked)
             {
-                // Run KMP 
+                // Run 
                 string imagePath = openFileDialog.FileName;
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
@@ -82,17 +82,18 @@ namespace gui
                 Biodata result = db.getBiodataFromName(name);
                 timeLabel.Text = $"Time: {stopwatch.Elapsed.TotalMilliseconds} ms";
                 persentageLabel.Text = "Percentage: " + res[2] + "%";
-                nikLabel.Text = $"NIK: {result.nik}";
-                namaLabel.Text = $"Nama: {result.nama}";
-                tempatLahirLabel.Text = $"Tempat Lahir: {result.tempat_lahir}";
-                tanggalLahirLabel.Text = $"Tanggal Lahir: {result.tanggal_lahir}";
-                jenisKelaminLabel.Text = $"Jenis Kelamin: {result.jenis_kelamin}";
-                golonganDarahLabel.Text = $"Golongan Darah: {result.golongan_darah}";
-                alamatLabel.Text = $"Alamat: {result.alamat}";
-                agamaLabel.Text = $"Agama: {result.agama}";
-                statusPerkawinanLabel.Text = $"Status Perkawinan: {result.status}";
-                pekerjaanLabel.Text = $"Pekerjaan: {result.pekerjaan}";
-                kewarganegaraanLabel.Text = $"Kewarganegaraan: {result.kewarganegaraan}";
+                resultTextBox.Text = $@"
+NIK: {result.nik}
+Nama: {result.nama}
+Tempat Lahir: {result.tempat_lahir}
+Tanggal Lahir: {result.tanggal_lahir}
+Jenis Kelamin: {result.jenis_kelamin}
+Golongan Darah: {result.golongan_darah}
+Alamat: {result.alamat}
+Agama: {result.agama}
+Status Perkawinan: {result.status}
+Pekerjaan: {result.pekerjaan}
+Kewarganegaraan: {result.kewarganegaraan}";
             }
         }
 
