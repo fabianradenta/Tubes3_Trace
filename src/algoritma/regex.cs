@@ -32,8 +32,14 @@ class Program
     //         }
     //     }
     // }
+    public bool PatternMatching(string patternString, string tergetString) {
+        string pattern = MakePattern(patternString);
+        
+        Regex regex = new Regex(pattern);
+        return regex.IsMatch(tergetString);
+    }
 
-    static string MakePattern(string s)
+    public string MakePattern(string s)
     {
         StringBuilder pattern = new StringBuilder();
 

@@ -83,7 +83,7 @@ public class MainProgram{
     //     return res;
     // }
     public static List<string> Search_FingerPrint(List<string> ImageAscii, bool isKMP){
-        List<string> ImageAsciiPartial = GetStringToMatch(ImageAscii);
+        string ImageAsciiPartial = GetStringToMatch(ImageAscii);
         Database db = new Database();
         db.connect();
         List<string> allFiles = db.selectPathFromSidikJari();
@@ -100,7 +100,7 @@ public class MainProgram{
             int Hamming_Result = 0;
             for (int idx = 0; idx < ImageAscii.Count; idx++) {
                 if (isKMP){
-                    if ((KMP.KMPCompare(ImageAscii2.ElementAt(idx), ImageAsciiPartial[1]) != -1)) {
+                    if ((KMP.KMPCompare(ImageAscii2.ElementAt(idx), ImageAsciiPartial) != -1)) {
                         result = file;
                         found = true;
                         break;
@@ -109,7 +109,7 @@ public class MainProgram{
                     }
                 }
                 else {
-                    if ((BoyerMoore.BmMatch(ImageAscii2.ElementAt(idx), ImageAsciiPartial[1]) != -1)) {
+                    if ((BoyerMoore.BmMatch(ImageAscii2.ElementAt(idx), ImageAsciiPartial) != -1)) {
                         result = file;
                         found = true;
                         break;
@@ -144,51 +144,32 @@ public class MainProgram{
         }
         return res;
     }
-    public static List<string> GetStringToMatch(List<string> imageString)
+    public static string GetStringToMatch(List<string> imageString)
     {
         int colLength = imageString[0].Length;
 
         // Determine the row to use
-        int selectedRowUp = imageString.Count / 4;
-        int selectedRowMid = imageString.Count / 2;
-        int selectedRowLow = imageString.Count * 15 / 16;
+        int selectedRow = imageString.Count / 2;
         int desiredLength = 8;
         int minLength = 4;
         int start = Math.Max(0, (colLength - desiredLength) / 2);
-        // int startAlt = Math.Max(0, (colLength - desiredLength) 2);
 
         int end = Math.Min(colLength, start + desiredLength);
 
         if (end - start < minLength)
         {
             start = Math.Max(0, (colLength - minLength) / 4);
-            // startAlt = Math.Max(0, (colLength - minLength) / 2);
             end = Math.Min(colLength, start + minLength);
         }
 
         // Build the result string
-        StringBuilder resultUp = new StringBuilder();
-        StringBuilder resultMid = new StringBuilder();
-        StringBuilder resultLow = new StringBuilder();
-        int count = 0;
+        StringBuilder result = new StringBuilder();
         for (int i = start; i < end; i++)
         {
-            resultUp.Append(imageString[selectedRowUp][i]);
-            resultMid.Append(imageString[selectedRowMid][i]);
-            resultLow.Append(imageString[selectedRowLow][i]);
+            result.Append(imageString[selectedRow][i]);
         }
 
-        // if (count == (end - start + 1)) {
-        //     return resultMid.ToString();
-        // } else {
-        //     return resultUp.ToString();
-        // }
-        List<string> result = new List<string>();
-        result.Add(resultLow.ToString());
-        result.Add(resultMid.ToString());
-        result.Add(resultUp.ToString());
-
-        return result;
+        return result.ToString();
     }
 
     static void Main(string[] args) {
