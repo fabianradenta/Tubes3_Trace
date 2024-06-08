@@ -45,11 +45,11 @@ class Program
             }
             else if (c == 'B' || c == 'b')
             {
-                pattern.Append("(?:[Bb]|13)");
+                pattern.Append("(?:[Bb8])");
             }
             else if (c == 'D' || c == 'd')
             {
-                pattern.Append("(?:[Dd]|17)");
+                pattern.Append("(?:[Dd])");
             }
             else if (c == 'E' || c == 'e')
             {
@@ -65,7 +65,7 @@ class Program
             }
             else if (c == 'O' || c == 'o')
             {
-                pattern.Append("(?:[Oo])?");
+                pattern.Append("(?:[Oo0])?");
             }
             else if (c == 'R' || c == 'r')
             {
@@ -74,6 +74,14 @@ class Program
             else if (c == 'G' || c == 'g')
             {
                 pattern.Append("(?:[Gg]|6)");
+            }
+            else if (c == 'T' || c == 't')
+            {
+                pattern.Append("(?:[Tt7])");
+            }
+            else if (c == 'S' || c == 's')
+            {
+                pattern.Append("(?:[Ss5])");
             }
             else
             {
