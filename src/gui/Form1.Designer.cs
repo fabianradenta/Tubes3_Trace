@@ -30,6 +30,7 @@ namespace gui
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             uploadButton = new Button();
             uploadedPictureBox = new PictureBox();
             uploadedPictureBoxLabel = new Label();
@@ -50,21 +51,22 @@ namespace gui
             // 
             // uploadButton
             // 
-            uploadButton.Location = new Point(74, 385);
+            uploadButton.BackColor = SystemColors.Control;
+            uploadButton.Image = (Image)resources.GetObject("uploadButton.Image");
+            uploadButton.Location = new Point(129, 524);
             uploadButton.Name = "uploadButton";
-            uploadButton.Size = new Size(188, 29);
+            uploadButton.Size = new Size(188, 48);
             uploadButton.TabIndex = 0;
-            uploadButton.Text = "Pilih Citra";
-            uploadButton.UseVisualStyleBackColor = true;
+            uploadButton.UseVisualStyleBackColor = false;
             uploadButton.Click += uploadButton_Click;
             // 
             // uploadedPictureBox
             // 
-            uploadedPictureBox.BackColor = SystemColors.ControlLight;
+            uploadedPictureBox.BackColor = Color.White;
             uploadedPictureBox.BorderStyle = BorderStyle.FixedSingle;
-            uploadedPictureBox.Location = new Point(44, 60);
+            uploadedPictureBox.Location = new Point(33, 85);
             uploadedPictureBox.Name = "uploadedPictureBox";
-            uploadedPictureBox.Size = new Size(264, 300);
+            uploadedPictureBox.Size = new Size(384, 412);
             uploadedPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             uploadedPictureBox.TabIndex = 1;
             uploadedPictureBox.TabStop = false;
@@ -73,57 +75,67 @@ namespace gui
             // uploadedPictureBoxLabel
             // 
             uploadedPictureBoxLabel.AutoSize = true;
-            uploadedPictureBoxLabel.BackColor = SystemColors.ControlLight;
-            uploadedPictureBoxLabel.Location = new Point(108, 195);
+            uploadedPictureBoxLabel.BackColor = Color.White;
+            uploadedPictureBoxLabel.Font = new Font("League Spartan ExtraBold", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            uploadedPictureBoxLabel.ForeColor = Color.DarkGray;
+            uploadedPictureBoxLabel.Location = new Point(77, 260);
             uploadedPictureBoxLabel.Name = "uploadedPictureBoxLabel";
-            uploadedPictureBoxLabel.Size = new Size(129, 20);
+            uploadedPictureBoxLabel.Size = new Size(306, 49);
             uploadedPictureBoxLabel.TabIndex = 3;
             uploadedPictureBoxLabel.Text = "Sidik Jari Masukan";
+            uploadedPictureBoxLabel.Click += uploadedPictureBoxLabel_Click;
             // 
             // topLabel
             // 
             topLabel.AutoSize = true;
-            topLabel.Location = new Point(270, 19);
+            topLabel.BackColor = Color.Transparent;
+            topLabel.Font = new Font("League Spartan ExtraBold", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            topLabel.ForeColor = Color.White;
+            topLabel.Location = new Point(143, 20);
             topLabel.Name = "topLabel";
-            topLabel.Size = new Size(440, 20);
+            topLabel.Size = new Size(1022, 50);
             topLabel.TabIndex = 4;
             topLabel.Text = "Sistem Deteksi Individu Berbasis Biometrik Melalui Citra Sidik Jari";
             // 
             // resultPictureBox
             // 
-            resultPictureBox.BackColor = SystemColors.ControlLight;
+            resultPictureBox.BackColor = Color.White;
             resultPictureBox.BorderStyle = BorderStyle.FixedSingle;
-            resultPictureBox.Location = new Point(329, 60);
+            resultPictureBox.Location = new Point(448, 85);
             resultPictureBox.Name = "resultPictureBox";
-            resultPictureBox.Size = new Size(264, 300);
+            resultPictureBox.Size = new Size(384, 412);
             resultPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             resultPictureBox.TabIndex = 4;
             resultPictureBox.TabStop = false;
             // 
             // resultTextBox
             // 
-            resultTextBox.Location = new Point(613, 60);
+            resultTextBox.Location = new Point(861, 85);
             resultTextBox.Multiline = true;
             resultTextBox.Name = "resultTextBox";
-            resultTextBox.Size = new Size(264, 300);
+            resultTextBox.Size = new Size(384, 412);
             resultTextBox.TabIndex = 5;
             // 
             // resultPictureBoxLabel
             // 
             resultPictureBoxLabel.AutoSize = true;
-            resultPictureBoxLabel.BackColor = SystemColors.ControlLight;
-            resultPictureBoxLabel.Location = new Point(407, 195);
+            resultPictureBoxLabel.BackColor = Color.White;
+            resultPictureBoxLabel.Font = new Font("League Spartan ExtraBold", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            resultPictureBoxLabel.ForeColor = Color.DarkGray;
+            resultPictureBoxLabel.Location = new Point(517, 260);
             resultPictureBoxLabel.Name = "resultPictureBoxLabel";
-            resultPictureBoxLabel.Size = new Size(112, 20);
+            resultPictureBoxLabel.Size = new Size(257, 49);
             resultPictureBoxLabel.TabIndex = 6;
             resultPictureBoxLabel.Text = "Sidik Jari Cocok";
             // 
             // bmRadio
             // 
             bmRadio.AutoSize = true;
-            bmRadio.Location = new Point(17, 26);
+            bmRadio.Font = new Font("League Spartan ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bmRadio.ForeColor = Color.White;
+            bmRadio.Location = new Point(15, 23);
             bmRadio.Name = "bmRadio";
-            bmRadio.Size = new Size(52, 24);
+            bmRadio.Size = new Size(62, 34);
             bmRadio.TabIndex = 7;
             bmRadio.TabStop = true;
             bmRadio.Text = "BM";
@@ -131,11 +143,14 @@ namespace gui
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(kmpRadio);
             groupBox1.Controls.Add(bmRadio);
-            groupBox1.Location = new Point(296, 366);
+            groupBox1.Font = new Font("League Spartan ExtraBold", 10.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(386, 515);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(155, 57);
+            groupBox1.Size = new Size(197, 57);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             groupBox1.Text = "Method:";
@@ -143,9 +158,11 @@ namespace gui
             // kmpRadio
             // 
             kmpRadio.AutoSize = true;
-            kmpRadio.Location = new Point(85, 26);
+            kmpRadio.Font = new Font("League Spartan ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kmpRadio.ForeColor = Color.White;
+            kmpRadio.Location = new Point(117, 23);
             kmpRadio.Name = "kmpRadio";
-            kmpRadio.Size = new Size(60, 24);
+            kmpRadio.Size = new Size(74, 34);
             kmpRadio.TabIndex = 8;
             kmpRadio.TabStop = true;
             kmpRadio.Text = "KMP";
@@ -154,29 +171,38 @@ namespace gui
             // 
             // searchButton
             // 
-            searchButton.Location = new Point(481, 385);
+            searchButton.BackColor = Color.White;
+            searchButton.Font = new Font("League Spartan ExtraBold", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            searchButton.ForeColor = Color.White;
+            searchButton.Image = (Image)resources.GetObject("searchButton.Image");
+            searchButton.Location = new Point(644, 524);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(112, 29);
+            searchButton.Size = new Size(188, 48);
             searchButton.TabIndex = 9;
-            searchButton.Text = "Search";
-            searchButton.UseVisualStyleBackColor = true;
+            searchButton.UseVisualStyleBackColor = false;
             searchButton.Click += button1_Click;
             // 
             // timeLabel
             // 
             timeLabel.AutoSize = true;
-            timeLabel.Location = new Point(665, 375);
+            timeLabel.BackColor = Color.Transparent;
+            timeLabel.Font = new Font("League Spartan ExtraBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            timeLabel.ForeColor = Color.White;
+            timeLabel.Location = new Point(861, 512);
             timeLabel.Name = "timeLabel";
-            timeLabel.Size = new Size(155, 20);
+            timeLabel.Size = new Size(254, 35);
             timeLabel.TabIndex = 10;
             timeLabel.Text = "Waktu Pencarian: 0 ms";
             // 
             // persentageLabel
             // 
             persentageLabel.AutoSize = true;
-            persentageLabel.Location = new Point(665, 399);
+            persentageLabel.BackColor = Color.Transparent;
+            persentageLabel.Font = new Font("League Spartan ExtraBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            persentageLabel.ForeColor = Color.White;
+            persentageLabel.Location = new Point(861, 547);
             persentageLabel.Name = "persentageLabel";
-            persentageLabel.Size = new Size(181, 20);
+            persentageLabel.Size = new Size(288, 35);
             persentageLabel.TabIndex = 11;
             persentageLabel.Text = "Persentase Kecocokan: 0%";
             // 
@@ -184,7 +210,9 @@ namespace gui
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(921, 435);
+            BackColor = Color.White;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(1282, 603);
             Controls.Add(persentageLabel);
             Controls.Add(timeLabel);
             Controls.Add(searchButton);

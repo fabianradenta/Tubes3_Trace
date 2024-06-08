@@ -73,21 +73,6 @@ namespace gui
                 stopwatch.Start();
                 List<string> AsciiInput = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(imagePath));
                 List<string> res = MainProgram.Search_FingerPrint(AsciiInput, kmpRadio.Checked);
-                // List<string> res1 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[0], kmpRadio.Checked);
-                // List<string> res2 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[1], kmpRadio.Checked);
-                // List<string> res3 = MainProgram.Search_FingerPrint(MainProgram.GetStringToMatch(AsciiInput)[2], kmpRadio.Checked);
-                // string filePath;
-                // int res1Val = int.Parse(res1[2]);
-                // int res2Val = int.Parse(res2[2]);
-                // int res3Val = int.Parse(res3[2]);
-                // int min = Math.Min(Math.Min(res1Val, res2Val), res3Val);
-                // if (res1Val == min) {
-                //     filePath = res1[0];
-                // } else if (res2Val == min) {
-                //     filePath = res2[0];
-                // } else {
-                //     filePath = res3[0];
-                // }
                 string filePath = res[0];
                 stopwatch.Stop();
                 resultPictureBox.Image = Image.FromFile(filePath);
@@ -98,5 +83,9 @@ namespace gui
             }
         }
 
+        private void uploadedPictureBoxLabel_Click(object sender, EventArgs e)
+        {
+            uploadedPictureBox_Click(sender, e);
+        }
     }
 }
