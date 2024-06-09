@@ -18,12 +18,11 @@ public class MainProgram{
         int width = ImageAscii.ElementAt(0).Length;
         int best_value_fp = 0;
         string result = "";
-        string r = "";
         bool found = false;
         foreach (string file in allFiles){
             List<string> ImageAscii2 = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(file));
             int Hamming_Result = 0;
-            for (int idx = 0; idx < ImageAscii.Count; idx++) {
+            for (int idx = 0; idx < (length < ImageAscii2.Count ? length : ImageAscii2.Count); idx++) {
                 if (isKMP){
                     if ((KMP.KMPCompare(ImageAscii2.ElementAt(idx), ImageAsciiPartial) != -1)) {
                         result = file;
@@ -55,17 +54,17 @@ public class MainProgram{
         }
         List<string> res = new List<string>();
         res.Add(result);
-        if (!found){
-            if (best_value_fp < 65) {
+        if (found){
+            res.Add("0");
+            res.Add("100");
+        } else {
+            if (best_value_fp < 50) {
                 res.Add("-1");
                 res.Add(Convert.ToString(best_value_fp));
             } else {
                 res.Add("1");
                 res.Add(Convert.ToString(best_value_fp));
             }
-        } else {
-            res.Add("0");
-            res.Add("100");
         }
         return res;
     }
@@ -76,16 +75,9 @@ public class MainProgram{
         // Determine the row to use
         int selectedRow = imageString.Count / 2;
         int desiredLength = 8;
-        int minLength = 4;
         int start = Math.Max(0, (colLength - desiredLength) / 2);
 
         int end = Math.Min(colLength, start + desiredLength);
-
-        if (end - start < minLength)
-        {
-            start = Math.Max(0, (colLength - minLength) / 4);
-            end = Math.Min(colLength, start + minLength);
-        }
 
         // Build the result string
         StringBuilder result = new StringBuilder();

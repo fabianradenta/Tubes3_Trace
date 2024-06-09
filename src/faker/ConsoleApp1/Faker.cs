@@ -7,8 +7,8 @@ public class FakerBiodata {
             var jenisKelamin = new[] {"Laki-Laki", "Perempuan"};
             var goldar = new[] {"A", "B", "AB", "O"};
             var agama = new[] {"Islam", "Katolik", "Protestan", "Hindu", "Buddha", "Khonghucu"};
-            var statusPerkawinan = new[] {"Menikah", "Belum Menikah"};
-            var job = new[] {"Wirausaha", "PNS", "Guru", "Dosen"};
+            var statusPerkawinan = new[] {"Menikah", "Belum Menikah", "Cerai"};
+            var job = new[] {"Wirausaha", "PNS", "Guru", "Dosen", "Dokter", "Insinyur", "Penulis", "Desainer grafis", "Programer", "Akuntan", "Arsitek", "Pengacara", "Pustakawan", "Ilmuwan", "Marketing", "Konsultan", "Psikolog", "Fotografer", "Musisi", "Aktor/Aktris", "Penyiar Radio/TV", "Editor", "Chef", "Petani", "Peneliti", "Perawat", "Diplomat", "Pilot", "Montir", "Pengusaha", "Ahli Kimia", "Teknisi IT", "Dokter Hewan"};
             var faker = new Faker<Biodata>()
                 .RuleFor(p => p.nik, f => f.Random.Long(1000000000000000, 9999999999999999))
                 .RuleFor(p => p.nama, f => f.Name.FullName())
@@ -23,17 +23,6 @@ public class FakerBiodata {
                 .RuleFor(p => p.kewarganegaraan, f => f.Address.Country());
 
             Biodata biodata = faker.Generate();
-            //Console.WriteLine($"Nama: {biodata.nama}");
-            //Console.WriteLine($"NIK : {biodata.nik}");
-            //Console.WriteLine($"Tempat lahir: {biodata.tempat_lahir}");
-            //Console.WriteLine($"Tanggal lahir: {biodata.tanggal_lahir}");
-            //Console.WriteLine($"Jenis kelamin: {biodata.jenis_kelamin}");
-            //Console.WriteLine($"goldar: {biodata.golongan_darah}");
-            //Console.WriteLine($"alamat: {biodata.alamat}");
-            //Console.WriteLine($"agama: {biodata.agama}");
-            //Console.WriteLine($"status: {biodata.status}");
-            //Console.WriteLine($"pekerjaan: {biodata.pekerjaan}");
-            //Console.WriteLine($"kewarganegaraan: {biodata.kewarganegaraan}");
             return biodata;
         }
 }

@@ -85,32 +85,34 @@ namespace gui
                     string name = db.getNameFromSidikJari(filePath);
                     Biodata result = db.getBiodataFromName(name);
                     resultTextBox.Clear();
-                    AppendTextWithColor(resultTextBox, "\n", Color.White);
+                    AppendTextWithColor(resultTextBox, "\n\n", Color.White);
                     AppendTextWithColor(resultTextBox, "NIK: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.nik}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.nik}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Nama: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.nama}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.nama}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Tempat Lahir: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.tempat_lahir}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.tempat_lahir}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Tanggal Lahir: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.tanggal_lahir}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.tanggal_lahir}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Jenis Kelamin: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.jenis_kelamin}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.jenis_kelamin}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Golongan Darah: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.golongan_darah}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.golongan_darah}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Alamat: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.alamat}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.alamat}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Agama: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.agama}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.agama}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Status Perkawinan: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.status}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.status}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Pekerjaan: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.pekerjaan}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.pekerjaan}\n", Color.DarkSlateBlue);
                     AppendTextWithColor(resultTextBox, "Kewarganegaraan: ", Color.Red);
-                    AppendTextWithColor(resultTextBox, $"{result.kewarganegaraan}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, $"{result.kewarganegaraan}\n", Color.DarkSlateBlue);
                 } else {
                     resultPictureBoxLabel.Visible = false;
-                    AppendTextWithColor(resultTextBox, "\n", Color.White);
+                    resultTextBox.Clear();
+                    resultPictureBox.Image = null;
+                    AppendTextWithColor(resultTextBox, "\n\n", Color.White);
                     AppendTextWithColor(resultTextBox, "Gambar sidik jari tidak ketemu", Color.Red);
                 }
             }
