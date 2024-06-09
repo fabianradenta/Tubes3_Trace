@@ -18,7 +18,7 @@ namespace BonusCrypto
             byte[] bytes = Encoding.UTF8.GetBytes(plaintext);
             if (bytes.Length % 2 != 0)
             {
-                Array.Resize(ref bytes, bytes.Length + 1); // Pad if odd length
+                Array.Resize(ref bytes, bytes.Length + 1);
             }
 
             byte[] encryptedBytes = Process(bytes, true);
@@ -29,7 +29,7 @@ namespace BonusCrypto
         {
             byte[] bytes = Convert.FromBase64String(ciphertext);
             byte[] decryptedBytes = Process(bytes, false);
-            return Encoding.UTF8.GetString(decryptedBytes).TrimEnd('\0'); // Remove padding
+            return Encoding.UTF8.GetString(decryptedBytes).TrimEnd('\0');
         }
 
         private byte[] Process(byte[] data, bool isEncrypt)

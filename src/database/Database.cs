@@ -1,24 +1,24 @@
 using System;
-using System.Data.SQLite;
+using MySql.Data.MySqlClient;
 using System.Data.SqlTypes;
 using System.Globalization;
 
 namespace database;
 public class Database {
 
-    private SQLiteConnection connection;
-    private SQLiteCommand cmd;
-    private string dataPath = "Data Source=../../data.db";
+    private MySqlConnection connection;
+    private MySqlCommand cmd;
 
     public Database() {
 
     }
 
     public void connect() {
-        connection = new SQLiteConnection(dataPath);
+        connection = new MySqlConnection("Server=localhost,3306;Database=tubes_stima3;User=root;Password=1731mysql;");
         connection.Open();
-        cmd = new SQLiteCommand(connection);
-    }
+        cmd = new MySqlCommand();
+        cmd.Connection = connection;
+    }  
 
     public void createBiodataTable() {
         cmd.CommandText = @"
@@ -27,11 +27,11 @@ public class Database {
                 `nama` VARCHAR(255) DEFAULT NULL,
                 `tempat_lahir` VARCHAR(255) DEFAULT NULL,
                 `tanggal_lahir` DATE DEFAULT NULL,
-                `jenis_kelamin` VARCHAR(10) CHECK(jenis_kelamin IN ('Laki-Laki', 'Perempuan')) DEFAULT NULL,
+                `jenis_kelamin` VARCHAR(10) ENUM('Laki-Laki', 'Perempuan') DEFAULT NULL,
                 `golongan_darah` VARCHAR(5) DEFAULT NULL,
                 `alamat` VARCHAR(255) DEFAULT NULL,
                 `agama` VARCHAR(50) DEFAULT NULL,
-                `status_perkawinan` VARCHAR(20) CHECK(status_perkawinan IN ('Belum Menikah', 'Menikah', 'Cerai')) DEFAULT NULL,
+                `status_perkawinan` VARCHAR(20) ENUM('Belum Menikah', 'Menikah', 'Cerai') DEFAULT NULL,
                 `pekerjaan` VARCHAR(100) DEFAULT NULL,
                 `kewarganegaraan` VARCHAR(50) DEFAULT NULL
         )";
@@ -74,17 +74,20 @@ public class Database {
         string pekerjaan, 
         string kewarganegaraan
     ) {
+        string date = tanggal_lahir.ToString("yyyy/MM/dd");
         cmd.CommandText = @$"
             INSERT INTO biodata(nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, golongan_darah, alamat, agama, status_perkawinan, pekerjaan, kewarganegaraan)
-            VALUES(""{nik}"", ""{nama}"", ""{tempat_lahir}"", ""{tanggal_lahir}"", ""{jenis_kelamin}"", ""{golongan_darah}"", ""{alamat}"", ""{agama}"", ""{status}"", ""{pekerjaan}"", ""{kewarganegaraan}"")
+            VALUES(""{nik}"", ""{nama}"", ""{tempat_lahir}"", ""{date}"", ""{jenis_kelamin}"", ""{golongan_darah}"", ""{alamat}"", ""{agama}"", ""{status}"", ""{pekerjaan}"", ""{kewarganegaraan}"")
         ";
         cmd.ExecuteNonQuery();
     }
 
     public void insertIntoSidikJari(string path, string nama) {
+        string newPath = path.Replace("\\","/");
+        Console.WriteLine(newPath);
         cmd.CommandText = @$"
             INSERT INTO sidik_jari(berkas_citra, nama)
-            VALUES(""{path}"", ""{nama}"")
+            VALUES(""{newPath}"", ""{nama}"")
         ";
         cmd.ExecuteNonQuery();
     }
@@ -92,7 +95,7 @@ public class Database {
     public List<string> selectPathFromSidikJari() {
         List<string> result = new List<string>();
         cmd.CommandText = @"SELECT berkas_citra FROM sidik_jari";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        MySqlDataReader data = cmd.ExecuteReader();
         while (data.Read()) {
             result.Add(Convert.ToString(data["berkas_citra"]));
         }
@@ -103,7 +106,7 @@ public class Database {
             SELECT * FROM biodata
             WHERE biodata.nama='{nama}'
         ";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        MySqlDataReader data = cmd.ExecuteReader();
         data.Read();
         int tanggal_lahir_idx = data.GetOrdinal("tanggal_lahir");
         Biodata biodata = new Biodata
@@ -111,7 +114,7 @@ public class Database {
             nik = Convert.ToInt64(data["nik"]),
             nama = Convert.ToString(data["nama"]),
             tempat_lahir = Convert.ToString(data["tempat_lahir"]),
-            tanggal_lahir = DateOnly.FromDateTime(DateTime.ParseExact(data.GetString(tanggal_lahir_idx), "dd/MM/yyyy", CultureInfo.InvariantCulture)),
+            tanggal_lahir = DateOnly.FromDateTime(data.GetDateTime(tanggal_lahir_idx)),
             jenis_kelamin = Convert.ToString(data["jenis_kelamin"]),
             golongan_darah = Convert.ToString(data["golongan_darah"]),
             alamat = Convert.ToString(data["alamat"]),
@@ -128,7 +131,7 @@ public class Database {
         cmd.CommandText = @$"
             SELECT nama FROM biodata
         ";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        MySqlDataReader data = cmd.ExecuteReader();
         List<string> listNama = new List<string>();
         while (data.Read()) {
             listNama.Add(Convert.ToString(data["nama"]));
@@ -142,7 +145,7 @@ public class Database {
             SELECT nama FROM sidik_jari
             WHERE sidik_jari.berkas_citra='{berkas_citra}'
         ";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        MySqlDataReader data = cmd.ExecuteReader();
         data.Read();
         string result = Convert.ToString(data["nama"]);
         data.Close();
@@ -154,7 +157,7 @@ public class Database {
             SELECT * FROM biodata
             WHERE biodata.nama='{nama}'
         ";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        MySqlDataReader data = cmd.ExecuteReader();
         if (data.HasRows) {
             data.Close();
             Biodata biodata = selectAllFromBiodata(nama);
@@ -180,5 +183,15 @@ public class Database {
     public void runQuery(string query) {
         cmd.CommandText = query;
         cmd.ExecuteNonQuery();
+    }
+
+    public void importSQL(string path) {
+        string command = File.ReadAllText(path);
+        cmd.CommandText = command;
+        cmd.ExecuteNonQuery();
+    }
+
+    public void getPathFromName(string name) {
+
     }
 }
