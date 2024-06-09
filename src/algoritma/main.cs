@@ -29,9 +29,7 @@ public class MainProgram{
                         found = true;
                         break;
                     } else {
-                        if (ImageAscii2.Count == length) {
-                            Hamming_Result += Hamming.hammingDist(ImageAscii2.ElementAt(idx), ImageAscii.ElementAt(idx));
-                        }
+                        Hamming_Result += Hamming.hammingDist(ImageAscii2.ElementAt(idx), ImageAscii.ElementAt(idx));
                     }
                 }
                 else {
@@ -40,9 +38,7 @@ public class MainProgram{
                         found = true;
                         break;
                     } else {
-                        if (ImageAscii2.Count == length) {
-                            Hamming_Result += Hamming.hammingDist(ImageAscii2.ElementAt(idx), ImageAscii.ElementAt(idx));
-                        }
+                        Hamming_Result += Hamming.hammingDist(ImageAscii2.ElementAt(idx), ImageAscii.ElementAt(idx));
                     }
                 }
             }

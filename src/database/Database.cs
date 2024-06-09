@@ -14,7 +14,7 @@ public class Database {
     }
 
     public void connect() {
-        connection = new MySqlConnection("Server=localhost,3306;Database=tubes_stima3;User=root;Password=1731mysql;");
+        connection = new MySqlConnection("Server=localhost,3306;Database=tubes_stima3;User=root;Password=Abdh013891;");
         connection.Open();
         cmd = new MySqlCommand();
         cmd.Connection = connection;
