@@ -1,4 +1,5 @@
 using System;
+using DotNetEnv;
 using MySql.Data.MySqlClient;
 using System.Data.SqlTypes;
 using System.Globalization;
@@ -14,7 +15,12 @@ public class Database {
     }
 
     public void connect() {
-        connection = new MySqlConnection("Server=localhost,3306;Database=tubes_stima3;User=root;Password=1731mysql;");
+        Env.Load("..\\..\\.env");
+        string server = Env.GetString("DB_SERVER");
+        string database = Env.GetString("DB_DATABASE");
+        string user = Env.GetString("DB_USER");
+        string password = Env.GetString("DB_PASSWORD");
+        connection = new MySqlConnection(@$"Server={server};Database={database};User={user};Password={password};");
         connection.Open();
         cmd = new MySqlCommand();
         cmd.Connection = connection;
