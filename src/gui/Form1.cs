@@ -85,7 +85,7 @@ namespace gui
                     string name = db.getNameFromSidikJari(filePath);
                     Biodata result = db.getBiodataFromName(name);
                     resultTextBox.Clear();
-                    AppendTextWithColor(resultTextBox, "\n", Color.White);
+                    AppendTextWithColor(resultTextBox, "", Color.White);
                     AppendTextWithColor(resultTextBox, "NIK: ", Color.Red);
                     AppendTextWithColor(resultTextBox, $"{result.nik}\n", Color.Black);
                     AppendTextWithColor(resultTextBox, "Nama: ", Color.Red);
@@ -110,7 +110,7 @@ namespace gui
                     AppendTextWithColor(resultTextBox, $"{result.kewarganegaraan}\n", Color.Black);
                 } else {
                     resultPictureBoxLabel.Visible = false;
-                    AppendTextWithColor(resultTextBox, "\n", Color.White);
+                    AppendTextWithColor(resultTextBox, "", Color.White);
                     AppendTextWithColor(resultTextBox, "Gambar sidik jari tidak ketemu", Color.Red);
                 }
             }

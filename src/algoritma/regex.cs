@@ -3,35 +3,6 @@ using System.Text.RegularExpressions;
 
 class CustomRegex
 {
-    // static void Main()
-    // {
-    //     string targetString = "Bintang Dwi Marthen";
-    //     string pattern = MakePattern(targetString);
-
-    //     // Compile the regex pattern
-    //     Regex regex = new Regex(pattern);
-
-    //     // Test strings
-    //     string[] testStrings = {
-    //         "bintanG DwI mArthen",       // Should match
-    //         "B1nt4n6 Dw1 M4rthen",
-    //         "Bntng Dw Mrthen",
-    //         "b1ntN6 Dw mrthn"
-    //     };
-
-    //     // Test the pattern
-    //     foreach (string testString in testStrings)
-    //     {
-    //         if (regex.IsMatch(testString))
-    //         {
-    //             Console.WriteLine($"'{testString}' matches the pattern");
-    //         }
-    //         else
-    //         {
-    //             Console.WriteLine($"'{testString}' does NOT match the pattern");
-    //         }
-    //     }
-    // }
     public bool PatternMatching(string pattern, string tergetString) {
         // string pattern = MakePattern(patternString);
         
