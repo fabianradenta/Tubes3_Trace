@@ -51,11 +51,13 @@ Regular Expression (Regex) merupakan sebuah string yang mendefinisikan sebuah po
    cd src/database
    dotnet run
    ```
+
+5. Selanjutnya edit file .env pada root folder dengan mengubah DB_PASSWORD menjadi password mySQL yang Anda miliki
    
-5. Selanjutnya, masuk ke folder GUI
+5. Pada terminal, masuk ke folder GUI
 
    ```bash
-   cd ../gui
+   cd src/gui
    ```
 
 6. Jalankan program dengan <i>command</i>
