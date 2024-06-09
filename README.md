@@ -44,7 +44,7 @@ Regular Expression (Regex) merupakan sebuah string yang mendefinisikan sebuah po
 
    Pastikan "path to" diubah menjadi <i>path</i> yang benar
 
-3. Selanjutnya edit file .env pada root folder dengan mengubah DB_PASSWORD menjadi password mySQL yang Anda miliki
+3. Selanjutnya edit file .env pada root folder dengan mengubah DB_PASSWORD menjadi password mySQL yang Anda miliki. Selain itu, ubah path pada file Program.cs pada folder database menjadi path file SQL Anda
 
 4. Jalankan mySQL dan buat database baru dengan nama tubes_stima3
 
