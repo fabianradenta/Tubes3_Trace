@@ -43,7 +43,7 @@ namespace gui
             searchButton = new Button();
             timeLabel = new Label();
             persentageLabel = new Label();
-            resultTextBox = new TextBox();
+            resultTextBox = new RichTextBox();
             biodataLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)uploadedPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)resultPictureBox).BeginInit();
@@ -208,10 +208,10 @@ namespace gui
             resultTextBox.Multiline = true;
             resultTextBox.Name = "resultTextBox";
             resultTextBox.ReadOnly = true;
-            resultTextBox.ScrollBars = ScrollBars.Both;
+            resultTextBox.ScrollBars = RichTextBoxScrollBars.Vertical;
             resultTextBox.Size = new Size(384, 412);
             resultTextBox.TabIndex = 12;
-            resultTextBox.WordWrap = false;
+            resultTextBox.WordWrap = true;
             // 
             // biodataLabel
             // 
@@ -268,7 +268,7 @@ namespace gui
         private Button searchButton;
         private Label timeLabel;
         private Label persentageLabel;
-        private TextBox resultTextBox;
+        private RichTextBox resultTextBox;
         private Label biodataLabel;
     }
 }

@@ -74,32 +74,61 @@ namespace gui
                 List<string> AsciiInput = ImageToString.IntToString(ImageToString.ConvertToBinaryImage(imagePath));
                 List<string> res = MainProgram.Search_FingerPrint(AsciiInput, kmpRadio.Checked);
                 string filePath = res[0];
+                string state = res[1];
                 stopwatch.Stop();
-                resultPictureBox.Image = Image.FromFile(filePath);
-                resultPictureBoxLabel.Visible = false;
-                db.connect();
-                string name = db.getNameFromSidikJari(filePath);
-                Biodata result = db.getBiodataFromName(name);
-                timeLabel.Text = $"Time: {stopwatch.Elapsed.TotalMilliseconds} ms";
                 persentageLabel.Text = "Percentage: " + res[2] + "%";
-                resultTextBox.Text = $@"
-NIK: {result.nik}
-Nama: {result.nama}
-Tempat Lahir: {result.tempat_lahir}
-Tanggal Lahir: {result.tanggal_lahir}
-Jenis Kelamin: {result.jenis_kelamin}
-Golongan Darah: {result.golongan_darah}
-Alamat: {result.alamat}
-Agama: {result.agama}
-Status Perkawinan: {result.status}
-Pekerjaan: {result.pekerjaan}
-Kewarganegaraan: {result.kewarganegaraan}";
+                timeLabel.Text = $"Time: {stopwatch.Elapsed.TotalMilliseconds} ms";
+                if (state != "-1") {
+                    resultPictureBox.Image = Image.FromFile(filePath);
+                    resultPictureBoxLabel.Visible = false;
+                    db.connect();
+                    string name = db.getNameFromSidikJari(filePath);
+                    Biodata result = db.getBiodataFromName(name);
+                    resultTextBox.Clear();
+                    AppendTextWithColor(resultTextBox, "\n", Color.White);
+                    AppendTextWithColor(resultTextBox, "NIK: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.nik}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Nama: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.nama}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Tempat Lahir: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.tempat_lahir}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Tanggal Lahir: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.tanggal_lahir}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Jenis Kelamin: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.jenis_kelamin}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Golongan Darah: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.golongan_darah}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Alamat: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.alamat}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Agama: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.agama}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Status Perkawinan: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.status}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Pekerjaan: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.pekerjaan}\n", Color.Black);
+                    AppendTextWithColor(resultTextBox, "Kewarganegaraan: ", Color.Red);
+                    AppendTextWithColor(resultTextBox, $"{result.kewarganegaraan}\n", Color.Black);
+                } else {
+                    resultPictureBoxLabel.Visible = false;
+                    AppendTextWithColor(resultTextBox, "\n", Color.White);
+                    AppendTextWithColor(resultTextBox, "Gambar sidik jari tidak ketemu", Color.Red);
+                }
             }
         }
 
         private void uploadedPictureBoxLabel_Click(object sender, EventArgs e)
         {
             uploadedPictureBox_Click(sender, e);
+        }
+
+        private void AppendTextWithColor(RichTextBox box, string text, Color color)
+        {
+            box.SelectionStart = box.TextLength;
+            box.SelectionLength = 0;
+
+            box.SelectionColor = color;
+            box.AppendText(text);
+            box.SelectionColor = box.ForeColor;
         }
     }
 }
