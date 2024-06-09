@@ -1,5 +1,4 @@
 .vs
-*.BMP
 obj/
 bin/
 Properties/
