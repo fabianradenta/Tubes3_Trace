@@ -44,10 +44,18 @@ Regular Expression (Regex) merupakan sebuah string yang mendefinisikan sebuah po
 
    Pastikan "path to" diubah menjadi <i>path</i> yang benar
 
-3. Pada terminal, masuk ke folder GUI
+3. Jalankan mySQL dan buat database baru dengan nama tubes_stima3
+
+4. Setelah database berhasil dibuat, masuk ke folder database dan jalankan perintah berikut
+   ```bash
+   cd src/database
+   dotnet run
+   ```
+   
+5. Selanjutnya, masuk ke folder GUI
 
    ```bash
-   cd src/gui
+   cd ../gui
    ```
 
 4. Jalankan program dengan <i>command</i>
