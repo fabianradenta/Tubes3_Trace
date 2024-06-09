@@ -21,7 +21,7 @@ namespace ImageProcess
             {
                 Color pixelColor = inputImage.GetPixel(x, y);
                 int grayValue = (int)(pixelColor.R * 0.3 + pixelColor.G * 0.59 + pixelColor.B * 0.11);
-                row.Add(grayValue >= 128 ? 1 : 0);
+                row.Add(grayValue >= 150 ? 1 : 0);
             }
             binaryMatrix.Add(row);
         }
