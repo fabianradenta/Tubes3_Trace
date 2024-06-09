@@ -1,4 +1,5 @@
 using System;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Data.SqlTypes;
 using System.Globalization;
@@ -6,19 +7,20 @@ using System.Globalization;
 namespace database;
 public class Database {
 
-    private SQLiteConnection connection;
-    private SQLiteCommand cmd;
-    private string dataPath = "Data Source=../../data.db";
+    private SqlConnection connection;
+    private SqlCommand cmd;
+    private string dataPath = "Data Source=../../data.sql";
 
     public Database() {
 
     }
 
     public void connect() {
-        connection = new SQLiteConnection(dataPath);
+        connection = new SqlConnection("Server=localhost,3306;Database=tubes_stima3;User=root;Password=1731mysql;");
         connection.Open();
-        cmd = new SQLiteCommand(connection);
-    }
+        cmd = new SqlCommand();
+        cmd.Connection = connection;
+    }  
 
     public void createBiodataTable() {
         cmd.CommandText = @"
@@ -27,11 +29,11 @@ public class Database {
                 `nama` VARCHAR(255) DEFAULT NULL,
                 `tempat_lahir` VARCHAR(255) DEFAULT NULL,
                 `tanggal_lahir` DATE DEFAULT NULL,
-                `jenis_kelamin` VARCHAR(10) CHECK(jenis_kelamin IN ('Laki-Laki', 'Perempuan')) DEFAULT NULL,
+                `jenis_kelamin` VARCHAR(10) ENUM('Laki-Laki', 'Perempuan') DEFAULT NULL,
                 `golongan_darah` VARCHAR(5) DEFAULT NULL,
                 `alamat` VARCHAR(255) DEFAULT NULL,
                 `agama` VARCHAR(50) DEFAULT NULL,
-                `status_perkawinan` VARCHAR(20) CHECK(status_perkawinan IN ('Belum Menikah', 'Menikah', 'Cerai')) DEFAULT NULL,
+                `status_perkawinan` VARCHAR(20) ENUM('Belum Menikah', 'Menikah', 'Cerai') DEFAULT NULL,
                 `pekerjaan` VARCHAR(100) DEFAULT NULL,
                 `kewarganegaraan` VARCHAR(50) DEFAULT NULL
         )";
@@ -92,7 +94,7 @@ public class Database {
     public List<string> selectPathFromSidikJari() {
         List<string> result = new List<string>();
         cmd.CommandText = @"SELECT berkas_citra FROM sidik_jari";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        SqlDataReader data = cmd.ExecuteReader();
         while (data.Read()) {
             result.Add(Convert.ToString(data["berkas_citra"]));
         }
@@ -103,7 +105,7 @@ public class Database {
             SELECT * FROM biodata
             WHERE biodata.nama='{nama}'
         ";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        SqlDataReader data = cmd.ExecuteReader();
         data.Read();
         int tanggal_lahir_idx = data.GetOrdinal("tanggal_lahir");
         Biodata biodata = new Biodata
@@ -128,7 +130,7 @@ public class Database {
         cmd.CommandText = @$"
             SELECT nama FROM biodata
         ";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        SqlDataReader data = cmd.ExecuteReader();
         List<string> listNama = new List<string>();
         while (data.Read()) {
             listNama.Add(Convert.ToString(data["nama"]));
@@ -142,7 +144,7 @@ public class Database {
             SELECT nama FROM sidik_jari
             WHERE sidik_jari.berkas_citra='{berkas_citra}'
         ";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        SqlDataReader data = cmd.ExecuteReader();
         data.Read();
         string result = Convert.ToString(data["nama"]);
         data.Close();
@@ -154,7 +156,7 @@ public class Database {
             SELECT * FROM biodata
             WHERE biodata.nama='{nama}'
         ";
-        SQLiteDataReader data = cmd.ExecuteReader();
+        SqlDataReader data = cmd.ExecuteReader();
         if (data.HasRows) {
             data.Close();
             Biodata biodata = selectAllFromBiodata(nama);
@@ -180,5 +182,15 @@ public class Database {
     public void runQuery(string query) {
         cmd.CommandText = query;
         cmd.ExecuteNonQuery();
+    }
+
+    public void convertSQLtoSQLite(string path) {
+        string command = File.ReadAllText(path);
+        string[] commands = command.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (string commandText in commands)
+        {
+            cmd.CommandText = commandText;
+            cmd.ExecuteNonQuery();
+        }
     }
 }
