@@ -4,8 +4,8 @@
 
 ## Daftar Isi
 
-- [Algoritma Knuth Morris Pratt ](#algoritma--knuth--morris--pratt)
-- [Algoritma Boyer Moore](#algoritma-boyer--moore)
+- [Algoritma Knuth Morris Pratt ](#algoritma-knuth-morris--ratt)
+- [Algoritma Boyer Moore](#algoritma-boyer-moore)
 - [Regular Expression](#regular-expression)
 - [Requirements](#requirements)
 - [Petunjuk Penggunaan](#petunjuk-penggunaan)
