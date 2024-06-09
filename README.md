@@ -44,34 +44,34 @@ Regular Expression (Regex) merupakan sebuah string yang mendefinisikan sebuah po
 
    Pastikan "path to" diubah menjadi <i>path</i> yang benar
 
-3. Jalankan mySQL dan buat database baru dengan nama tubes_stima3
+3. Selanjutnya edit file .env pada root folder dengan mengubah DB_PASSWORD menjadi password mySQL yang Anda miliki
 
-4. Setelah database berhasil dibuat, masuk ke folder database dan jalankan perintah berikut
+4. Jalankan mySQL dan buat database baru dengan nama tubes_stima3
+
+5. Setelah database berhasil dibuat, masuk ke folder database dan jalankan perintah berikut
    ```bash
    cd src/database
    dotnet run
    ```
-
-5. Selanjutnya edit file .env pada root folder dengan mengubah DB_PASSWORD menjadi password mySQL yang Anda miliki
    
-5. Pada terminal, masuk ke folder GUI
+6. Pada terminal, masuk ke folder GUI
 
    ```bash
    cd src/gui
    ```
 
-6. Jalankan program dengan <i>command</i>
+7. Jalankan program dengan <i>command</i>
     ```bash
     dotnet run
     ```
 
-7. Aplikasi Desktop akan terbuka pada komputer dan siap menerima masukan citra sidik jari untuk dicocokkan dengan sidik jari pada <i>database</i>.
+8. Aplikasi Desktop akan terbuka pada komputer dan siap menerima masukan citra sidik jari untuk dicocokkan dengan sidik jari pada <i>database</i>.
 
-8. Setelah memasukkan citra sidik jari yang ingin dicocokkan, silakan pilih metode pencarian (KMP atau BM).
+9. Setelah memasukkan citra sidik jari yang ingin dicocokkan, silakan pilih metode pencarian (KMP atau BM).
 
-9. Klik tombol "search" untuk memulai pencarian.
+10. Klik tombol "search" untuk memulai pencarian.
 
-10. Program akan melakukan pencarian dan menampilkan hasilnya di layar komputer.
+11. Program akan melakukan pencarian dan menampilkan hasilnya di layar komputer.
 
 ## Authors
 
