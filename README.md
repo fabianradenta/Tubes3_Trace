@@ -58,18 +58,18 @@ Regular Expression (Regex) merupakan sebuah string yang mendefinisikan sebuah po
    cd ../gui
    ```
 
-4. Jalankan program dengan <i>command</i>
+6. Jalankan program dengan <i>command</i>
     ```bash
     dotnet run
     ```
 
-5. Aplikasi Desktop akan terbuka pada komputer dan siap menerima masukan citra sidik jari untuk dicocokkan dengan sidik jari pada <i>database</i>.
+7. Aplikasi Desktop akan terbuka pada komputer dan siap menerima masukan citra sidik jari untuk dicocokkan dengan sidik jari pada <i>database</i>.
 
-6. Setelah memasukkan citra sidik jari yang ingin dicocokkan, silakan pilih metode pencarian (KMP atau BM).
+8. Setelah memasukkan citra sidik jari yang ingin dicocokkan, silakan pilih metode pencarian (KMP atau BM).
 
-7. Klik tombol "search" untuk memulai pencarian.
+9. Klik tombol "search" untuk memulai pencarian.
 
-8. Program akan melakukan pencarian dan menampilkan hasilnya di layar komputer.
+10. Program akan melakukan pencarian dan menampilkan hasilnya di layar komputer.
 
 ## Authors
 
