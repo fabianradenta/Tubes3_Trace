@@ -7,7 +7,7 @@ class Program {
     static void Main() {
         Database data = new Database();
         data.connect();
-        data.importSQL("../../dump.sql");
+        data.importSQL("C:\\Users\\abdul\\OneDrive\\Documents\\Coding\\STIMA\\Tubes3\\Tubes3_Trace\\Test Case\\tubes3_stima24.sql");
         //data.runQuery("UPDATE biodata SET nama='NIckolAS ruTherfOrd' WHERE nama='Nickolas Rutherford'");
         //data.runQuery("UPDATE biodata SET nama='V1nc3n24 Bor3r' WHERE nama='Vincenza Borer'");
         //data.runQuery("UPDATE biodata SET nama='Alx Fdel' WHERE nama='Alex Fadel'");
