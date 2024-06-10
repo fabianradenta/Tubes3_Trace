@@ -59,6 +59,10 @@ class CustomRegex
             {
                 pattern.Append("(?:[Ss5])");
             }
+            else if (c == 'Z' || c == 'z')
+            {
+                pattern.Append("(?:[Zz2])");
+            }
             else
             {
                 pattern.Append($"[{char.ToLower(c)}{char.ToUpper(c)}]");

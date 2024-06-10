@@ -147,9 +147,10 @@ public class Database {
     }
 
     public string getNameFromSidikJari(string berkas_citra) {
+        string newPath = berkas_citra.Replace("\\", "\\\\");
         cmd.CommandText = @$"
             SELECT nama FROM sidik_jari
-            WHERE sidik_jari.berkas_citra='{berkas_citra}'
+            WHERE sidik_jari.berkas_citra='{newPath}'
         ";
         MySqlDataReader data = cmd.ExecuteReader();
         data.Read();
